@@ -1,74 +1,64 @@
 {
-    "0": {
-        "id": 19112832,
-        "name": "Оплата интернета",
-        "description": "",
-        "price": "80",
-        "currency": "UAN",
-        "created": "21-07-2019",
-        "modified": "23-07-2019",
-        "categories": [
-            "internet"
-        ]
-    },
-    "1": {
-        "id": 19112833,
-        "name": "Заправка авто",
-        "description": "",
-        "price": "800",
-        "currency": "UAN",
-        "created": "21-07-2019",
-        "modified": "23-07-2019",
-        "categories": [
-            "азс"
-        ]
-    },
-    "2": {
-        "id": 19112834,
-        "name": "Индивидуальные занятия на ф-но",
-        "description": "",
-        "price": "450",
-        "currency": "UAN",
-        "created": "21-07-2019",
-        "modified": "23-07-2019",
-        "categories": [
-            "music"
-        ]
-    },
-    "3": {
-        "id": 19112835,
-        "name": "Покупка тура на 2-х",
-        "description": "",
-        "price": "600",
-        "currency": "EUR",
-        "created": "21-07-2019",
-        "modified": "23-07-2019",
-        "categories": [
-            "trip"
-        ]
-    },
-    "4": {
-        "id": 19112836,
-        "name": "Домашний кинотеатр",
-        "description": "",
-        "price": "15000",
-        "currency": "UAN",
-        "created": "21-07-2019",
-        "modified": "23-07-2019",
-        "categories": [
-            "home comfort"
-        ]
-    },
-    "5": {
-        "id": 19112831,
-        "name": "Пицца Пепперони с томатами",
-        "description": "",
-        "price": "100",
-        "currency": "UAN",
-        "created": "21-07-2019",
-        "modified": "23-07-2019",
-        "categories": [
-            "food"
-        ]
+  "0": {
+    "id": 19112832,
+    "name": "Оплата интернета",
+    "description": "",
+    "price": "80",
+    "currency": "UAN",
+    "created": "21-07-2019",
+    "modified": "23-07-2019",
+    "categories": ["internet"]
+  },
+  "1": {
+    "id": 19112833,
+    "name": "Заправка авто",
+    "description": "",
+    "price": "800",
+    "currency": "UAN",
+    "created": "21-07-2019",
+    "modified": "23-07-2019",
+    "categories": ["азс"]
+  },
+  "2": {
+    "id": 19112834,
+    "name": "Индивидуальные занятия на ф-но",
+    "description": "",
+    "price": "450",
+    "currency": "UAN",
+    "created": "21-07-2019",
+    "modified": "23-07-2019",
+    "categories": ["music"]
+  },
+  "3": {
+    "id": 19112835,
+    "name": "Покупка тура на 2-х",
+    "description": "",
+    "price": "600",
+    "currency": "EUR",
+    "created": "21-07-2019",
+    "modified": "23-07-2019",
+    "categories": ["trip"]
+  },
+  "4": {
+    "id": 19112836,
+    "name": "Домашний кинотеатр",
+    "description": "",
+    "price": "15000",
+    "currency": "UAN",
+    "created": "21-07-2019",
+    "modified": "23-07-2019",
+    "categories": ["home comfort"]
+  },
+  "id": [
+    {
+      "id": 19112831,
+      "name": "Пицца Пепперони с томатами",
+      "description": "",
+      "price": "100",
+      "currency": "UAN",
+      "created": "21-07-2019",
+      "modified": "23-07-2019",
+      "categories": ["food"]
     }
+  ]
 }

@@ -15,7 +15,7 @@ const productsToAdd = [
     currency: 'UAN',
     created: '21-07-2019',
     modified: '23-07-2019',
-    categories: ['internet'],
+    categories: ['internet', 'computer'],
   },
 
   {
@@ -37,7 +37,7 @@ const productsToAdd = [
     currency: 'UAN',
     created: '21-07-2019',
     modified: '23-07-2019',
-    categories: ['music'],
+    categories: ['music', 'computer'],
   },
 
   {
@@ -99,10 +99,9 @@ const productsToAdd = [
 // Расширяем пример и сохраняйм в файл all-costs.json
 fs.readFile(products, 'utf8', (err, data) => {
   const costProducts = JSON.parse(data);
+  let newCombineArray = costProducts.concat(productsToAdd);
 
-  const newCostProducts = { costProducts, ...productsToAdd };
-
-  fs.writeFile(allProducts, JSON.stringify(newCostProducts), err => {
+  fs.writeFile(allProducts, JSON.stringify(newCombineArray), err => {
     console.log('Done! Create new BD!');
   });
 });

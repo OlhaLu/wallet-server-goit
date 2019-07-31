@@ -3,10 +3,11 @@ const fs = require('fs');
 //шаблон json согласно ТЗ
 const products = './costs-mock.json';
 // вторичный файл после слияния с датой
-const allProducts = './all-costs.json';
+const allProducts = './db/costs/all-costs.json';
 
-// объекты products на добавлениев основной json файл
-const productsToAdd = [{
+// объекты products на добавление в основной json файл
+const productsToAdd = [
+  {
   "id": 19112832,
   "name": "Оплата интернета",
   "description": "",
@@ -17,7 +18,7 @@ const productsToAdd = [{
   "categories": ["internet"]
   },
 
- {
+  {
   "id": 19112833,
   "name": "Заправка авто",
   "description": "",
@@ -39,7 +40,7 @@ const productsToAdd = [{
   "categories": ["music"]
   },
 
-  {
+ {
   "id": 19112835,
   "name": "Покупка тура на 2-х",
   "description": "",
@@ -59,6 +60,36 @@ const productsToAdd = [{
   "created": "21-07-2019",
   "modified": "23-07-2019",
   "categories": ["home comfort"]
+  },
+
+  {"id": 19112837,
+  "name": "Продукты питания - супермаркет",
+  "description": "",
+  "price": "1800",
+  "currency": "UAN",
+  "created": "21-07-2019",
+  "modified": "23-07-2019",
+  "categories": ["food"]
+  },
+
+{"id": 19112838,
+  "name": "Услуги косметолога",
+  "description": "",
+  "price": "1200",
+  "currency": "UAN",
+  "created": "21-07-2019",
+  "modified": "23-07-2019",
+  "categories": ["healthy"]
+  },
+
+ {"id": 19112839,
+  "name": "Покупка спортивного уголка",
+  "description": "",
+  "price": "2850",
+  "currency": "UAN",
+  "created": "21-07-2019",
+  "modified": "23-07-2019",
+  "categories": ["healthy"]
   }
 ];
 
@@ -66,9 +97,9 @@ const productsToAdd = [{
 fs.readFile(products, 'utf8', (err, data) => {
 const costProducts = JSON.parse(data);
 
-const newCostProducts = {...costProducts, ...productsToAdd};
+const newCostProducts = {costProducts, ...productsToAdd};
 
 fs.writeFile(allProducts, JSON.stringify(newCostProducts), (err) => {
-console.log('Done!');
+console.log('Done! Create new BD!');
 });
 });

@@ -1,51 +1,34 @@
-const express = require('express')
+const express = require('express');
 const app = express();
+const allCosts = require('./db/costs/all-costs.json');
 
-const PORT = process.env.PORT || 3000;
- 
-// app.get('/', function (req, res) {
-//   res.send('Hello World +++')
-// })
+const PORT = process.env.PORT || 3001;
 
-// app.get('/home', function (req, res) {
-//     res.send('home page +++')
-//   })
+app.get('/home', function (req, res, next) {
+    res.send('Wellet Home Page')
+  })
 
-//   app.get('/about', function (req, res) {
-//     res.send('about page +++')
-//   })  
- 
-//   app.get('/users/', function (req, res) {
-//     res.send('Hello  -    ' + req.query.name + '   '+ req.query.age)
-//   })  
+  app.get('/costs', function(req, res, next) {
+    res.status(200).json(allCosts);
+  });
 
-//   app.post('/:', function (req, res) {
-//     res.send('Post')
-//   })  
+app.get('/costs/:id', (req, res) =>{
+  let serchCostsId = allCosts.find(costs => {
+      return costs.id === Number(req.params.id)
+  });
+  res.send(serchCostsId);
+})
 
-//   app.put('/', function (req, res) {
-//     res.send('Put')
-//   })  
+  app.use(function(req, res, next){
+      let err = new Error ('not found');
+      err.status = 404;
+      next(err);
+  })
 
-//   app.patch('/', function (req, res) {
-//     res.send('Patch')
-//   }) 
+  app.use(function(err, req, res, next){
+      res.status(err.status || 500).send({ "status": "no products", error: "products: []" });
+      })
 
-//   app.delete('/', function (req, res) {
-//     res.send('Delete')
-//   })
-
-//   app.use(function(req, res, next){
-//       let err = new Error ('not found');
-//       err.status = 404;
-//       next(err);
-//   })
-
-//   app.use(function(err, req, res, next){
-//       res.status(err.status || 500);
-//       res.render('error', {message: err.message, error: err});
-//       })
-
-app.listen(PORT, () =>{
-    console.log('Server is running on ' + PORT);
+app.listen(PORT, () => {
+  console.log('Server is running on ' + PORT);
 });

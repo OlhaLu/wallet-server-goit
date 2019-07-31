@@ -4,30 +4,48 @@ const allCosts = require('./db/costs/all-costs.json');
 
 const PORT = process.env.PORT || 3001;
 
-app.get('/home', function (req, res, next) {
-    res.send('Wellet Home Page')
-  })
+app.get('/home', function(req, res, next) {
+  res.send('Wallet Home Page');
+});
 
-  app.get('/costs', function(req, res, next) {
-    res.status(200).json(allCosts);
-  });
+// запрос на отображение даты
+app.get('/costs', function(req, res, next) {
+  let category = req.query.category;
+  // console.log('Query param: ' + req.query.category);
 
-app.get('/costs/:id', (req, res) =>{
+  if (category !== undefined) {
+    let findedCostsObjects = allCosts.filter(cost => {
+      if (cost.categories.includes(category)) {
+        return cost;
+      }
+    });
+
+    // console.log(findedCostsObjects);
+    res.status(200).send(findedCostsObjects);
+  } else {
+    res.status(200).send(allCosts);
+  }
+});
+
+// запрос на поиск данных по ID
+app.get('/costs/:id', (req, res) => {
   let serchCostsId = allCosts.find(costs => {
-      return costs.id === Number(req.params.id)
+    return costs.id === Number(req.params.id);
   });
   res.send(serchCostsId);
-})
+});
 
-  app.use(function(req, res, next){
-      let err = new Error ('not found');
-      err.status = 404;
-      next(err);
-  })
+app.use(function(req, res, next) {
+  let err = new Error('not found');
+  err.status = 404;
+  next(err);
+});
 
-  app.use(function(err, req, res, next){
-      res.status(err.status || 500).send({ "status": "no products", error: "products: []" });
-      })
+app.use(function(err, req, res, next) {
+  res
+    .status(err.status || 500)
+    .send({ status: 'no products', error: 'products: []' });
+});
 
 app.listen(PORT, () => {
   console.log('Server is running on ' + PORT);

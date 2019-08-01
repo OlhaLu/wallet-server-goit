@@ -11,7 +11,6 @@ app.get('/home', function(req, res, next) {
 // запрос на отображение даты
 app.get('/costs', function(req, res, next) {
   let category = req.query.category;
-  // console.log('Query param: ' + req.query.category);
 
   if (category !== undefined) {
     let findedCostsObjects = allCosts.filter(cost => {
@@ -20,7 +19,6 @@ app.get('/costs', function(req, res, next) {
       }
     });
 
-    // console.log(findedCostsObjects);
     res.status(200).send(findedCostsObjects);
   } else {
     res.status(200).send(allCosts);

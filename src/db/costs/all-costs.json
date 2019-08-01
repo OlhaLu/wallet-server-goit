@@ -1,5 +1,15 @@
 [
   {
+    "id": 19112831,
+    "name": "Пицца Пепперони с томатами",
+    "description": "",
+    "price": "100",
+    "currency": "UAN",
+    "created": "21-07-2019",
+    "modified": "23-07-2019",
+    "categories": ["food"]
+  },
+  {
     "id": 19112832,
     "name": "Оплата интернета",
     "description": "",
@@ -7,7 +17,7 @@
     "currency": "UAN",
     "created": "21-07-2019",
     "modified": "23-07-2019",
-    "categories": ["internet", "computer"]
+    "categories": ["internet"]
   },
   {
     "id": 19112833,
@@ -27,7 +37,7 @@
     "currency": "UAN",
     "created": "21-07-2019",
     "modified": "23-07-2019",
-    "categories": ["music", "computer"]
+    "categories": ["music"]
   },
   {
     "id": 19112835,
@@ -57,7 +67,7 @@
     "currency": "UAN",
     "created": "21-07-2019",
     "modified": "23-07-2019",
-    "categories": ["food", "healthy"]
+    "categories": ["food"]
   },
   {
     "id": 19112838,
@@ -78,15 +88,5 @@
     "created": "21-07-2019",
     "modified": "23-07-2019",
     "categories": ["healthy"]
-  },
-  {
-    "id": 19112831,
-    "name": "Пицца Пепперони с томатами",
-    "description": "",
-    "price": "100",
-    "currency": "UAN",
-    "created": "21-07-2019",
-    "modified": "23-07-2019",
-    "categories": ["food"]
   }
 ]

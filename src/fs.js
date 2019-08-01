@@ -99,10 +99,9 @@ const productsToAdd = [
 // Расширяем пример и сохраняйм в файл all-costs.json
 fs.readFile(products, 'utf8', (err, data) => {
   const costProducts = JSON.parse(data);
+  let newCombineArray = costProducts.concat(productsToAdd);
 
-  const newCostProducts = { costProducts, ...productsToAdd };
-
-  fs.writeFile(allProducts, JSON.stringify(newCostProducts), err => {
+  fs.writeFile(allProducts, JSON.stringify(newCombineArray), err => {
     console.log('Done! Create new BD!');
   });
 });

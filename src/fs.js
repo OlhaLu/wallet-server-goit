@@ -59,7 +59,7 @@ const productsToAdd = [
     currency: 'UAN',
     created: '21-07-2019',
     modified: '23-07-2019',
-    categories: ['home comfort'],
+    categories: ['home comfort', 'music'],
   },
 
   {
@@ -92,7 +92,7 @@ const productsToAdd = [
     currency: 'UAN',
     created: '21-07-2019',
     modified: '23-07-2019',
-    categories: ['healthy'],
+    categories: ['healthy', 'internet'],
   },
 ];
 

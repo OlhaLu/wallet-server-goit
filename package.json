@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js",
-    "build": "nodemon ./src/server.js"
+    "start": "node index.js",
+    "build": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "handlebars": "^4.1.2",
+    "mongodb": "^3.3.0-beta2",
     "net": "^1.0.2",
     "nodemon": "^1.19.1"
   }

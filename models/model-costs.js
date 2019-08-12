@@ -18,7 +18,7 @@ exports.findById = function(id, cb) {
     });
 };
 
-exports.create = function(artist, cb) {
+exports.create = function(cost, cb) {
   db.get()
     .collection('costs')
     .insert(cost, function(err, result) {
@@ -29,7 +29,7 @@ exports.create = function(artist, cb) {
 exports.update = function(id, newData, cb) {
   db.get()
     .collection('costs')
-    .updateOne({ _id: ObjectID(id) }, newData, function(err, result) {
+    .updateOne({ _id: ObjectID(id) }, {$set: newData}, function(err, result) {
       cb(err, result);
     });
 };

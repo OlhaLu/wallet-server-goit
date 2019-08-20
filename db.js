@@ -11,14 +11,13 @@ exports.connect = function(urlMongodb, done) {
   if (state.db) return done();
 
   MongoClient.connect(urlMongodb, { useNewUrlParser: true }, function(err, database) {
-    assert.equal(null, err);
-    // if (err) return err;
+    // assert.equal(null, err);
+    if (err) return err;
     console.log("Connected successfully to server");
 
-
     state.db = database.db(dbName);
-    client.close();
-    // done();
+    // client.close();
+    done();
   });
 };
 

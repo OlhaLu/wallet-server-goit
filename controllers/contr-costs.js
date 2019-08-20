@@ -1,7 +1,7 @@
 var Costs = require('../models/model-costs');
 var allCosts = '../all-costs.json';
 
-// сохранение одного товара/затраты в базу данных
+// сохранение одного товара/затрат в базу данных
 exports.create = function (req, res) {
   var cost = {
     name: req.body.name,

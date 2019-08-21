@@ -1,4 +1,6 @@
+require('./core/express-promise');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
@@ -18,7 +20,7 @@ app.get('/costs/:id', costsController.findById);
 app.put('/costs/:id', costsController.update);
 app.delete('/costs/:id', costsController.delete);
 
-db.connect(urlMongodb, { useNewUrlParser: true }, function(err) {
+db.connect(urlMongodb, { useNewUrlParser: true,  useUnifiedTopology: true }, function(err) {
     // if (err) {
     //   return console.log(err);
     // }

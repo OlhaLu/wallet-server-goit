@@ -18,10 +18,10 @@ exports.findById = function(id, cb) {
     });
 };
 
-exports.create = function(cost, cb) {
+exports.create = function(costs, cb) {
   db.get()
     .collection('costs')
-    .insert(cost, function(err, result) {
+    .insert(costs, function(err, result) {
       cb(err, result);
     });
 };

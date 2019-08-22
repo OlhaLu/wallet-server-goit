@@ -21,17 +21,11 @@ app.put('/costs/:id', costsController.update);
 app.delete('/costs/:id', costsController.delete);
 
 db.connect(urlMongodb, { useNewUrlParser: true,  useUnifiedTopology: true }, function(err) {
-    // if (err) {
-    //   return console.log(err);
-    // }
-    // app.listen(port, function() {
-    //   console.log('Started API app!');
-    // };
-    
-    app.listen(port, (err) => {
-      if (err) {
-        return console.log('something bad happened', err)
+    if (err) {
+      return console.log('something bad happened', err)
     }
-    console.log(`server is listening on ${port}`)
-})
+    app.listen(port, function() {
+      console.log(`server is listening on ${port}`)
+
+    })
 })

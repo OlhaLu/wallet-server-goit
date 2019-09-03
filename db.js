@@ -1,5 +1,5 @@
 let MongoClient = require('mongodb').MongoClient;
-const urlMongodb = 'mongodb+srv://olhalu:<password>@clusterolhalu-c3gov.gcp.mongodb.net/test?retryWrites=true&w=majority';
+const urlMongodb = 'mongodb+srv://olhalu:<12345>@clusterolhalu-c3gov.gcp.mongodb.net/test?retryWrites=true&w=majority';
 const dbName = 'wallet_server';
 
 let state = {

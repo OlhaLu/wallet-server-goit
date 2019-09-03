@@ -1,7 +1,23 @@
-var Costs = require('../models/model-costs');
-var allCosts = '../all-costs.json';
+const Costs = require('../models/model-costs');
+const mongoose = require('mongoose');
+const allCosts = '../all-costs.json';
 
-// сохранение одного товара/затраты в базу данных
+
+// const costSchema = mongoose.Schema({
+//   name: String,
+//     description: String,
+//     price: Number,
+//     currency: String,
+//     created: Number,
+//     modified: Number,
+//     categories: [Array]
+// });
+
+// const Costs = mongoose.model('Costs', costSchema);
+ 
+// module.exports = Costs;
+
+// сохранение одного товара/затрат в базу данных
 exports.create = function (req, res) {
   var cost = {
     name: req.body.name,

@@ -9,7 +9,7 @@ const costsController = require('./controllers/contr-costs');
 const port = 8000;
 
 const app = express();
-const urlMongodb = 'mongodb+srv://olhalu:<12345>@clusterolhalu-c3gov.gcp.mongodb.net/test?retryWrites=true&w=majority';
+const urlMongodb = 'mongodb+srv://olhalu:<12345>@clusterolhalu-c3gov.gcp.mongodb.net/costs?retryWrites=true&w=majority';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,25 +19,14 @@ app.post('/costs', costsController.create);
 app.get('/costs', costsController.all);
 app.get('/costs/:id', costsController.findById);
 app.put('/costs/:id', costsController.update);
-app.delete('/costs/:id', costsController.delete);
-
+app.delete('/costs/:id', costsController.remove);
 
 const connectDB = async () => {
 try {
-  await mongoose.connect(db);
+  await mongoose.createConnection();
   console.log('Mongo DB connected ...');
 } catch (err) {
   console.error('something bad happened', err);
 }
 }
-module.exports = connectDB;
-
-
-// db.connect(urlMongodb, { useNewUrlParser: true,  useUnifiedTopology: true }, function(err) {
-//     if (err) {
-      // return console.log('something bad happened', err)
-//     }
-//     app.listen(port, () => {
-      // console.log('server is listening on ' + port);
-//     })
-// })
+connectDB();

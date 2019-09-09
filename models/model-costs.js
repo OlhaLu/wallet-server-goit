@@ -34,7 +34,7 @@ exports.update = function(id, newData, cb) {
     });
 };
 
-exports.delete = function(id, cb) {
+exports.remove = function(id, cb) {
   db.get()
     .collection('costs')
     .deleteOne({ _id: ObjectID(id) }, function(err, result) {

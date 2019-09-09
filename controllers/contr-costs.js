@@ -1,21 +1,4 @@
 const Costs = require('../models/model-costs');
-const mongoose = require('mongoose');
-const allCosts = '../all-costs.json';
-
-
-// const costSchema = mongoose.Schema({
-//   name: String,
-//     description: String,
-//     price: Number,
-//     currency: String,
-//     created: Number,
-//     modified: Number,
-//     categories: [Array]
-// });
-
-// const Costs = mongoose.model('Costs', costSchema);
- 
-// module.exports = Costs;
 
 // сохранение одного товара/затрат в базу данных
 exports.create = function (req, res) {
@@ -28,6 +11,7 @@ exports.create = function (req, res) {
     modified: req.body.modified,
     categories: req.body.categories
   };
+
   Costs.create(cost, function (err, result) {
     if (err) {
       console.log(err);
@@ -39,7 +23,7 @@ exports.create = function (req, res) {
 
 // в ответе должны прийти все товары из базы данных
 exports.all = function(req, res) {
-  Costs.all(function(err, docs) {
+  Costs.find(function(err, docs) {
     if (err) {
       console.log(err);
       return res.sendStatus(500);
@@ -71,7 +55,7 @@ exports.update = function(req, res) {
 };
 
 // удаление объекта по ID
-exports.delete = function(req, res) {
+exports.remove = function(req, res) {
   Costs.delete(req.params.id, function(err, result) {
     if (err) {
       console.log(err);

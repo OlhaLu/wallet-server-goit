@@ -1,9 +1,17 @@
-var ObjectID = require('mongodb').ObjectID;
-var db = require('../db');
+const ObjectID = require('mongodb').ObjectID;
+const db = require('../db');
 
-exports.all = function(cb) {
+exports.create = function(costs, cb) {
   db.get()
-    .collection('costs')
+    .collections('costs')
+    .insert(costs, function(err, result) {
+      cb(err, result);
+    });
+};
+
+exports.find = function(cb) {
+  db.get()
+    .collections('costs')
     .find()
     .toArray(function(err, docs) {
       cb(err, docs);
@@ -12,23 +20,15 @@ exports.all = function(cb) {
 
 exports.findById = function(id, cb) {
   db.get()
-    .collection('costs')
+    .collections('costs')
     .findOne({ _id: ObjectID(id) }, function(err, doc) {
       cb(err, doc);
     });
 };
 
-exports.create = function(costs, cb) {
-  db.get()
-    .collection('costs')
-    .insert(costs, function(err, result) {
-      cb(err, result);
-    });
-};
-
 exports.update = function(id, newData, cb) {
   db.get()
-    .collection('costs')
+    .collections('costs')
     .updateOne({ _id: ObjectID(id) }, {$set: newData}, function(err, result) {
       cb(err, result);
     });
@@ -36,7 +36,7 @@ exports.update = function(id, newData, cb) {
 
 exports.remove = function(id, cb) {
   db.get()
-    .collection('costs')
+    .collections('costs')
     .deleteOne({ _id: ObjectID(id) }, function(err, result) {
       cb(err, result);
     });

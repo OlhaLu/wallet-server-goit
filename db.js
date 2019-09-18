@@ -8,7 +8,6 @@ let state = {
 
 exports.connect = function(done) {
   if (state.db) return done();
-
   MongoClient.connect(urlMongodb, { useNewUrlParser: true,  useUnifiedTopology: true }, function(err, database) {
     if (err) return err;
     console.log("Connected server successfully");

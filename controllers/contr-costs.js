@@ -1,25 +1,50 @@
-const costsController = require('../models/model-costs');
+const costsController = require('../models/model-costs.js');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // сохранение одного товара/затрат в базу данных
-exports.create = function (req, res) {
-  const cost = {
-    name: req.body.name,
-    description: req.body.description,
-    price: req.body.price,
-    currency: req.body.currency,
-    created: req.body.created,
-    modified: req.body.modified,
-    categories: req.body.categories
-  };
+const CostsScheme = new Schema({
+  name: String,
+  description: String,
+  price: Number,
+  currency: Number,
+  created: String,
+  modified: String,
+  categories: Array
+});
 
-  costsController.create(cost, function (err, result) {
+const Cost = mongoose.model("Cost", CostsScheme);
+
+exports.create = function(req, res) {
+  Cost.create(function(err, cost) {
     if (err) {
       console.log(err);
       return res.sendStatus(500);
     }
-    res.sendStatus(200).json().send(cost);
-  })
-};
+    res.sendStatus(200).send(cost);
+  })};
+
+
+// // сохранение одного товара/затрат в базу данных
+// exports.create = function (req, res) {
+//   const cost = {
+//     name: req.body.name,
+//     description: req.body.description,
+//     price: req.body.price,
+//     currency: req.body.currency,
+//     created: req.body.created,
+//     modified: req.body.modified,
+//     categories: req.body.categories
+//   };
+
+  // costsController.create(cost, function (err, result) {
+  //   if (err) {
+  //     console.log(err);
+  //     return res.sendStatus(500);
+  //   }
+  //   res.sendStatus(200).json().send(cost);
+  // })
+// };
 
 
 // в ответе должны прийти все товары из базы данных
@@ -29,7 +54,7 @@ exports.find = function(req, res) {
       console.log(err);
       return res.sendStatus(500);
     }
-    res.sendStatus(200).json().send(docs);
+    res.sendStatus(200).send(docs);
   });
 };
 
@@ -40,7 +65,7 @@ exports.findById = function(req, res) {
       console.log(err);
       return res.sendStatus(500);
     }
-    res.sendStatus(200).json().send(doc);
+    res.sendStatus(200).send(doc);
   });
 };
 
@@ -65,7 +90,3 @@ exports.remove = function(req, res) {
     res.sendStatus(200);
   });
 };
-
- 
-
- 

@@ -9,6 +9,7 @@ const deleteCosts = async (req, res) => {
       status: 'OK',
       deletedCost: deletedCost,
     });
+    
   } catch (error) {
     res.status(400).json({
       status: 'BAD',

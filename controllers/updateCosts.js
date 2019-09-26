@@ -6,7 +6,7 @@ const updateCosts = async (req, res) => {
   const updatedData = req.body;
 
   try {
-    const updatedCost = await costsModel.updateOne()(
+    const updatedCost = await costsModel.findByIdAndUpdate()(
       costId,
       {
         $set: updatedData,
